@@ -1,0 +1,80 @@
+import React, { useState } from 'react';
+import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
+
+export default function App() {
+  const [titulo, setTitulo] = useState('');
+  const [tituloCadastrado, setTituloCadastrado] = useState('');
+  const imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR85-gxI6Ces4T_yZbDnmZwOHIlWxp5woIICIYei5ADLQ&s'
+
+  const limpar = () => {
+    setTitulo('');
+    setTituloCadastrado('');
+  };
+
+  const cadastrar = () => {
+    if (titulo !== '') {
+      setTituloCadastrado(titulo);
+      setTitulo('');
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Image source={{ uri: imageUrl }} style={styles.image} />
+      <Text style={styles.title}>Cadastro de Filmes</Text>
+      <TextInput
+        style={styles.input} 
+        placeholder="Insira o título do filme"
+        value={titulo}
+        onChangeText={setTitulo}
+      />
+      <View style={styles.buttonContainer}>
+        <Button title="
+
+Limpar" onPress={limpar} />
+        <Button title="Cadastrar" onPress={cadastrar} />
+      </View>
+      {tituloCadastrado !== '' && (
+        <Text style={styles.tituloCadastrado}>Título cadastrado: {tituloCadastrado}</Text>
+      )}
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    backgroundColor: '#ecf0f1',
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  input: {
+    width: '100%',
+    padding: 10,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+  },
+  image: {
+    width: 400,
+    height: 400,
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    width: '100%',
+    marginBottom: 20,
+  },
+  tituloCadastrado: {
+    marginTop: 20,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+})
