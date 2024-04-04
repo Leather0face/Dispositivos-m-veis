@@ -4,7 +4,7 @@ import { StyleSheet, Text, TextInput, View, Button, Image } from 'react-native';
 export default function App() {
   const [titulo, setTitulo] = useState('');
   const [tituloCadastrado, setTituloCadastrado] = useState('');
-  const imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR85-gxI6Ces4T_yZbDnmZwOHIlWxp5woIICIYei5ADLQ&s'
+  const imageUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbOypwi7MTyz1lhja8LQq7fcWNd17cI_oYSLvL_BlDUA&s'
 
   const limpar = () => {
     setTitulo('');
@@ -21,10 +21,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Image source={{ uri: imageUrl }} style={styles.image} />
-      <Text style={styles.title}>Cadastro de Filmes</Text>
+      <Text style={styles.title}>Cadastro de pets</Text>
       <TextInput
         style={styles.input} 
-        placeholder="Insira o título do filme"
+        placeholder="Insira o nome do seu pet"
         value={titulo}
         onChangeText={setTitulo}
       />
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-})
+});
